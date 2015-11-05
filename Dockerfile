@@ -1,9 +1,10 @@
 FROM node:4.2-onbuild
-# replace this with your application's default port
 
+# update packages and grab pdftk for merging pdfs
 RUN apt-get update && apt-get install -y \
     pdftk
 
+# get libreoffice - version 4.4.4x is supported by unoconv
 ENV LIBREOFFICE_VERSION 4.4.4.3
 ENV LIBREOFFICE_ARCHIVE LibreOffice_4.4.4.3_Linux_x86-64_deb.tar.gz
 RUN apt-get update \
@@ -22,3 +23,8 @@ RUN apt-get update \
     && apt-get autoremove -y \
         curl \
     && rm -rf /var/lib/apt/lists/*
+
+# Grab the latest unoconv - it hasn't been updated so just the master from github will do
+ADD https://raw.githubusercontent.com/dagwieers/unoconv/master/unoconv /usr/bin/unoconv
+RUN chmod +xr /usr/bin/unoconv
+
