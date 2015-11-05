@@ -1,4 +1,4 @@
-FROM node:4.2-onbuild
+FROM node:4.2
 
 # update packages and grab pdftk for merging pdfs
 RUN apt-get update && apt-get install -y \
