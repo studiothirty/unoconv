@@ -2,7 +2,7 @@ FROM node:4.2
 
 # update packages and grab pdftk for merging pdfs
 RUN apt-get update && apt-get install -y \
-    pdftk
+    pdftk unoconv
 
 # get libreoffice - version 4.4.4x is supported by unoconv
 ENV LIBREOFFICE_VERSION 4.4.4.3
