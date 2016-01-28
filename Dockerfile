@@ -2,7 +2,7 @@ FROM node:4.2
 
 # update packages and grab pdftk for merging pdfs
 RUN apt-get update && apt-get install -y \
-    pdftk unoconv
+    pdftk unoconv libglu1-mesa libxinerama1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
