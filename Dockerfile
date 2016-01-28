@@ -6,7 +6,7 @@ RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
-      unoconv pdftk \
+      unoconv pdftk libglu1-mesa libxinerama1 \
   && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/
