@@ -18,4 +18,5 @@ ONBUILD COPY package.json /usr/src/app/
 ONBUILD RUN npm install
 ONBUILD COPY . /usr/src/app
 
-CMD [ "npm", "start" ]
+# Startup
+ENTRYPOINT /usr/bin/unoconv --listener --server=0.0.0.0 --port=2002 && npm start
