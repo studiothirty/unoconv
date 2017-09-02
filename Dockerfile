@@ -1,4 +1,4 @@
-FROM node:4.2
+FROM node:6.10
 
 # update packages and grab pdftk for merging pdfs
 
@@ -15,8 +15,9 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ONBUILD COPY package.json /usr/src/app/
-ONBUILD RUN npm install
+ONBUILD COPY yarn.lock /usr/src/app/
+ONBUILD RUN yarn install
 ONBUILD COPY . /usr/src/app
 
 # Startup
-ENTRYPOINT /usr/bin/unoconv --listener --server=0.0.0.0 --port=2002 && npm start
+ENTRYPOINT /usr/bin/unoconv --listener --server=0.0.0.0 --port=2002 && yarn start
