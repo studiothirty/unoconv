@@ -1,4 +1,4 @@
-FROM node:6.10
+FROM node:6.11
 
 # update packages and grab pdftk for merging pdfs
 
